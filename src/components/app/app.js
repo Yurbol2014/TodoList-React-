@@ -13,12 +13,23 @@ export default class App extends Component{
 
    state = {
        todoData : [
-         { label: 'Drink Coffee', important: false, id: 1 },
-         { label: 'Make Awesome App', important: true, id: 2 },
-         { label: 'Have a lunch', important: false, id: 3 }
+          this.createTodoItem('Drink Coffee'),
+          this.createTodoItem('Make Awesome App'),
+          this.createTodoItem('Have a lunch'),
+         
          
        ]
    };
+
+   createTodoItem(label){
+      return {
+         label,
+         important: false,
+         done: false,
+         id: this.maxId++
+      }
+   }
+
    deleteItem = (id) =>{
      this.setState(({todoData})=>{
       const idx = todoData.findIndex((el)=> el.id === id);
@@ -35,11 +46,7 @@ export default class App extends Component{
    };
    addItem = (text) =>{
     //generate id 
-   const newItem = {
-      label: text,
-      important: false,
-      id: this.maxId++
-   };
+   const newItem = this.createTodoItem(text);
    //add element in array
    this.setState(({todoData})=>{
     const newArr = [
@@ -57,8 +64,12 @@ export default class App extends Component{
 
    };
    onToggleDone = (id) => {
-      console.log('Toggle Done', id)
-   };   
+     this.setState(( {todoData} )=>{
+      const idx = todoData.findIndex((el)=> el.id === id);
+      const oldItem = todoData[idx]
+      const newItem = {...oldItem,
+      done: !oldItem.done};
+     })
    render ()
    {
       return (
@@ -80,4 +91,4 @@ export default class App extends Component{
        );
    };
 
-}
+   };
