@@ -28,7 +28,7 @@ export default class App extends Component{
          done: false,
          id: this.maxId++
       }
-   }
+   };
 
    deleteItem = (id) =>{
      this.setState(({todoData})=>{
@@ -50,7 +50,7 @@ export default class App extends Component{
    //add element in array
    this.setState(({todoData})=>{
     const newArr = [
-       ...todoData,newItem
+       ...todoData, newItem
     ];
     return{
        todoData: newArr
@@ -59,17 +59,20 @@ export default class App extends Component{
 
    };
 
+   onToggleDone = (id) => {
+      this.setState(( {todoData} )=>{
+       const idx = todoData.findIndex((el)=> el.id === id);
+       const oldItem = todoData[idx]
+       const newItem = {...oldItem,
+       done: !oldItem.done};
+      });
+   };
+
    onToggleImportant = (id) => {
       console.log('Toggle Imortant', id)
 
    };
-   onToggleDone = (id) => {
-     this.setState(( {todoData} )=>{
-      const idx = todoData.findIndex((el)=> el.id === id);
-      const oldItem = todoData[idx]
-      const newItem = {...oldItem,
-      done: !oldItem.done};
-     })
+   
    render ()
    {
       return (
