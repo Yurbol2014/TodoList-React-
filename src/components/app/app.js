@@ -103,6 +103,10 @@ export default class App extends Component{
    onSearchChange = (term) =>{
       this.setState({term});
    }
+   
+   onFilterChange = (filter) =>{
+      this.setState({filter});
+   }
 
    filter(items, filter){
     switch(filter){
@@ -132,7 +136,9 @@ export default class App extends Component{
            <div className="top-panel d-flex">
              <SearchPanel 
              onSearchChange={this.onSearchChange}/>
-             <ItemStatusFilter filter={filter}/>
+             <ItemStatusFilter 
+             filter={filter}
+             onFilterChange={this.onFilterChange}/>
            </div>
      
            <TodoList todos={visibleItems}
