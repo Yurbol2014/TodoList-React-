@@ -19,7 +19,7 @@ export default class App extends Component{
           this.createTodoItem('Learn React'),
           this.createTodoItem('Learn Redux'),
           this.createTodoItem('Learn TypeScript'),
-          this.createTodoItem('Pass an interview')
+          this.createTodoItem('Make a resume')
          
          
        ], term: '',
@@ -30,7 +30,7 @@ export default class App extends Component{
       return {
          label,
          important: false,
-         done: false,
+         done: true,
          id: this.maxId++
       }
    };
