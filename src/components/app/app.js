@@ -13,9 +13,13 @@ export default class App extends Component{
 
    state = {
        todoData : [
-          this.createTodoItem('Drink Coffee'),
-          this.createTodoItem('Make Awesome App'),
-          this.createTodoItem('Have a lunch'),
+          this.createTodoItem('Learn HTML'),
+          this.createTodoItem('Learn CSS'),
+          this.createTodoItem('Learn JS'),
+          this.createTodoItem('Learn React'),
+          this.createTodoItem('Learn Redux'),
+          this.createTodoItem('Learn TypeScript'),
+          this.createTodoItem('Pass an interview')
          
          
        ], term: '',
@@ -35,8 +39,7 @@ export default class App extends Component{
      this.setState(({todoData})=>{
       const idx = todoData.findIndex((el)=> el.id === id);
       
-      // [a,b,c,d,e]
-      //[a,b,  d,e]
+      
       
       const newArray = [...todoData.slice(0,idx),
           ...todoData.slice(idx +1)];
