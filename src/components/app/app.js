@@ -13,27 +13,38 @@ export default class App extends Component{
 
    state = {
        todoData : [
-          this.createTodoItem('Learn HTML'),
-          this.createTodoItem('Learn CSS'),
-          this.createTodoItem('Learn JS'),
-          this.createTodoItem('Learn React'),
-          this.createTodoItem('Learn Redux'),
-          this.createTodoItem('Learn TypeScript'),
-          this.createTodoItem('Make a resume')
+          this.doneTodoItem('Изучить HTML'),
+          this.doneTodoItem('Изучить CSS'),
+          this.doneTodoItem('Изучить JS'),
+          this.doneTodoItem('Изучить React'),
+          this.doneTodoItem('Изучить Redux'),
+          this.doneTodoItem('Изучить TypeScript'),
+          this.doneTodoItem('Составить резюме'),
+          this.createTodoItem('Пройти собеседование')
          
          
        ], term: '',
        filter: 'all' // active, all, done
    };
 
+ 
+
    createTodoItem(label){
+      return {
+         label,
+         important: false,
+         done: false,
+         id: this.maxId++
+      }
+   };
+   doneTodoItem(label){
       return {
          label,
          important: false,
          done: true,
          id: this.maxId++
       }
-   };
+   }
 
    deleteItem = (id) =>{
      this.setState(({todoData})=>{
@@ -156,3 +167,8 @@ export default class App extends Component{
    };
 
    };
+
+
+
+
+  
