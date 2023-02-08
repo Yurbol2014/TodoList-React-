@@ -1,7 +1,7 @@
 # Приложение: TODO-LIST
 
 	
-<img src="https://github.com/Yurbol2014/img/blob/main/TODO-LIST.png" alt="Todo-list изображение">
+<img src="https://github.com/Yurbol2014/img/blob/main/Serfing.png" alt="serfing">
 
 ### Используемые технологии: React,JS,CSS,HTML
 ### Что из React применял:
